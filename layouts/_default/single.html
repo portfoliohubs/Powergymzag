@@ -388,7 +388,7 @@
                             
                             <div class="exercise-card" 
                                  data-equipment="{{ .Params.equipment | default "free_weights" }}"
-                                 data-gender="{{ delimit (.Params.gender | default slice "male") "," }}">
+                                 data-gender="{{ delimit (.Params.gender | default "male") "," }}">
                                 {{ $image := "" }}
                                 {{ $muscle := .Params.muscle }}
                                 {{ $exerciseName := .Params.exercise_name | default .Title }}
