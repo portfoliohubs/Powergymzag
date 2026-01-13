@@ -18,7 +18,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        fetch-depth: 1
+        # If you keep --enableGitInfo in the build step, you MUST use fetch-depth: 0
+        # If you remove --enableGitInfo, you can switch this back to 1 for speed.
+        fetch-depth: 0 
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
@@ -29,8 +31,19 @@ jobs:
     - name: Setup Pages
       uses: actions/configure-pages@v4
 
+    # --- NEW: CACHING STEP ---
+    # This caches the 'resources' folder so images aren't rebuilt every time.
+    - name: Cache Hugo resources
+      uses: actions/cache@v3
+      with:
+        path: resources
+        key: ${{ runner.os }}-hugo-resources-${{ hashFiles('content/**/*') }}
+        restore-keys: |
+          ${{ runner.os }}-hugo-resources-
+
     - name: Build with Hugo
-      run: hugo --minify --gc --enableGitInfo
+      # Removed --gc (Garbage Collect) because we want to keep cached resources
+      run: hugo --minify --enableGitInfo
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
