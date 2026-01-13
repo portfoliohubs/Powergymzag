@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gym Training</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.09);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.68);
+      --border: rgba(255,255,255,0.12);
+      --accent: #7c3aed;
+      --accent2: #22c55e;
+      --shadow: 0 18px 60px rgba(0,0,0,0.35);
+      --radius: 18px;
+    }
+
+    [data-theme="light"] {
+      --bg: #f7f7fb;
+      --panel: rgba(10,12,16,0.06);
+      --panel2: rgba(10,12,16,0.08);
+      --text: rgba(10,12,16,0.92);
+      --muted: rgba(10,12,16,0.62);
+      --border: rgba(10,12,16,0.14);
+      --accent: #6d28d9;
+      --accent2: #16a34a;
+      --shadow: 0 18px 60px rgba(10,12,16,0.12);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 18% 10%, rgba(124, 58, 237, 0.25), transparent 55%),
+                  radial-gradient(900px 600px at 88% 20%, rgba(34, 197, 94, 0.18), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 20px; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(12px);
+      background: color-mix(in srgb, var(--bg) 75%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 20px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 180px;
+    }
+
+    .brand strong { font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .brand span { font-size: 12px; color: var(--muted); }
+
+    .controls { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+
+    .toggle {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      gap: 6px;
+    }
+
+    .toggle button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .toggle button[aria-pressed="true"] {
+      background: var(--panel2);
+      color: var(--text);
+      border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+    }
+
+    .hero {
+      padding: 54px 0 28px;
+    }
+
+    .hero-card {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--panel), transparent);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: var(--accent2);
+      border-radius: 999px;
+      box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent2) 18%, transparent);
+    }
+
+    h1 {
+      margin: 14px 0 8px;
+      font-size: clamp(34px, 3.4vw, 50px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 62ch;
+    }
+
+    .hero-actions { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, transparent), color-mix(in srgb, var(--accent2) 50%, transparent));
+      border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+    }
+
+    .btn small { font-weight: 700; opacity: 0.85; }
+
+    .section {
+      padding: 22px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+
+    .card {
+      grid-column: span 4;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--panel), transparent);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      min-height: 104px;
+    }
+
+    .card:hover { border-color: color-mix(in srgb, var(--accent) 30%, var(--border)); }
+
+    .card strong { display: block; font-size: 16px; letter-spacing: -0.01em; }
+    .card span { display: block; margin-top: 6px; color: var(--muted); font-size: 13px; }
+
+    .card .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--text) 80%, var(--muted));
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      width: fit-content;
+    }
+
+    .footer {
+      padding: 22px 0 40px;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+      margin-top: 22px;
+    }
+
+    @media (max-width: 980px) {
+      .card { grid-column: span 6; }
+    }
+
+    @media (max-width: 620px) {
+      .topbar-inner { flex-direction: column; align-items: stretch; }
+      .controls { justify-content: flex-start; }
+      .card { grid-column: span 12; }
+      .hero-card { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./">
+        <strong id="brandName">Gym Training</strong>
+        <span id="brandSlogan">Loading…</span>
+      </a>
+      <div class="controls">
+        <div class="toggle" role="group" aria-label="Theme">
+          <button type="button" data-theme-btn="dark" aria-pressed="false">Dark</button>
+          <button type="button" data-theme-btn="light" aria-pressed="false">Light</button>
+        </div>
+        <div class="toggle" role="group" aria-label="Gender">
+          <button type="button" data-gender-btn="male" aria-pressed="false">Male</button>
+          <button type="button" data-gender-btn="female" aria-pressed="false">Female</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-kicker"><span class="dot"></span><span id="heroKicker">Gym Training System</span></div>
+        <h1 id="heroTitle">Loading…</h1>
+        <p class="lead" id="heroLead">Loading…</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" id="heroCta" href="#programs">Explore</a>
+          <a class="btn" href="./push/"><small>Start now:</small>&nbsp;Push</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="programs">
+      <div id="sections"></div>
+    </section>
+
+    <div class="footer">
+      <div>Fully static. Preferences saved on-device.</div>
+    </div>
+  </main>
+
+  <script>
+    const LS_THEME = 'gym_theme';
+    const LS_GENDER = 'gym_gender';
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem(LS_THEME, theme);
+      document.querySelectorAll('[data-theme-btn]').forEach(btn => {
+        btn.setAttribute('aria-pressed', btn.getAttribute('data-theme-btn') === theme ? 'true' : 'false');
+      });
+    }
+
+    function setGender(gender) {
+      document.documentElement.setAttribute('data-gender', gender);
+      localStorage.setItem(LS_GENDER, gender);
+      document.querySelectorAll('[data-gender-btn]').forEach(btn => {
+        btn.setAttribute('aria-pressed', btn.getAttribute('data-gender-btn') === gender ? 'true' : 'false');
+      });
+    }
+
+    function initToggles(defaultTheme, defaultGender) {
+      const theme = localStorage.getItem(LS_THEME) || defaultTheme || 'dark';
+      const gender = localStorage.getItem(LS_GENDER) || defaultGender || 'male';
+      setTheme(theme);
+      setGender(gender);
+
+      document.querySelectorAll('[data-theme-btn]').forEach(btn => {
+        btn.addEventListener('click', () => setTheme(btn.getAttribute('data-theme-btn')));
+      });
+      document.querySelectorAll('[data-gender-btn]').forEach(btn => {
+        btn.addEventListener('click', () => setGender(btn.getAttribute('data-gender-btn')));
+      });
+    }
+
+    function renderSections(cfg) {
+      const root = document.getElementById('sections');
+      root.innerHTML = '';
+
+      const sections = (cfg?.params?.home?.sections || []);
+      for (const section of sections) {
+        const wrapper = document.createElement('section');
+        wrapper.className = 'section';
+
+        const head = document.createElement('div');
+        head.className = 'section-head';
+        head.innerHTML = `<h2>${escapeHtml(section.title || '')}</h2><p>${escapeHtml(section.subtitle || '')}</p>`;
+        wrapper.appendChild(head);
+
+        const grid = document.createElement('div');
+        grid.className = 'grid';
+
+        for (const item of (section.items || [])) {
+          const card = document.createElement('a');
+          card.className = 'card';
+          card.href = `./${item.slug}/`;
+          card.innerHTML = `<strong>${escapeHtml(item.title || '')}</strong><span>${escapeHtml(item.description || '')}</span><div class="chip">Open</div>`;
+          grid.appendChild(card);
+        }
+
+        wrapper.appendChild(grid);
+        root.appendChild(wrapper);
+      }
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    async function loadConfig() {
+      const candidates = [
+        './site-config.json',
+        '/site-config.json'
+      ];
+
+      for (const url of candidates) {
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (!res.ok) continue;
+          return await res.json();
+        } catch (_) {}
+      }
+      return null;
+    }
+
+    (async function boot() {
+      const cfg = await loadConfig();
+
+      const gymName = cfg?.params?.gym_name || cfg?.title || 'Gym Training';
+      const slogan = cfg?.params?.slogan || 'Train smart.';
+      const ctaText = cfg?.params?.cta_text || 'Explore Training';
+      const defaultTheme = cfg?.params?.default_theme || 'dark';
+      const defaultGender = cfg?.params?.default_gender || 'male';
+
+      document.title = gymName;
+      document.getElementById('brandName').textContent = gymName;
+      document.getElementById('brandSlogan').textContent = slogan;
+
+      document.getElementById('heroTitle').textContent = gymName;
+      document.getElementById('heroLead').textContent = slogan;
+      const cta = document.getElementById('heroCta');
+      cta.textContent = ctaText;
+      cta.setAttribute('href', cfg?.params?.home?.hero_cta_target || '#programs');
+
+      initToggles(defaultTheme, defaultGender);
+
+      if (cfg) {
+        renderSections(cfg);
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          const id = a.getAttribute('href');
+          const el = document.querySelector(id);
+          if (!el) return;
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

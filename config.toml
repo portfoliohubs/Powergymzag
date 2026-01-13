@@ -1,0 +1,116 @@
+baseURL = "https://github.com/portfoliohubs/Powergymzag/"
+languageCode = "en-us"
+title = "Gym Training"
+relativeURLs = true
+
+[params]
+  gym_name = "IronPulse Gym"
+  slogan = "Train smart. Lift strong. Repeat."
+  cta_text = "Explore Training"
+  default_theme = "dark"
+  default_gender = "male"
+
+  [params.home]
+    hero_cta_target = "#programs"
+
+    [[params.home.sections]]
+      id = "ppl"
+      title = "Push / Pull / Legs"
+      subtitle = "Structured programs for balanced progression"
+
+      [[params.home.sections.items]]
+        title = "Push"
+        slug = "push"
+        description = "Chest, shoulders, triceps"
+
+      [[params.home.sections.items]]
+        title = "Pull"
+        slug = "pull"
+        description = "Back, rear delts, biceps"
+
+      [[params.home.sections.items]]
+        title = "Legs"
+        slug = "legs"
+        description = "Quads, hamstrings, glutes, calves"
+
+    [[params.home.sections]]
+      id = "bodyparts"
+      title = "Smart Body Parts"
+      subtitle = "Pick a muscle focus and filter by equipment"
+
+      [[params.home.sections.items]]
+        title = "Chest"
+        slug = "chest"
+        description = "Pressing strength + hypertrophy"
+
+      [[params.home.sections.items]]
+        title = "Back"
+        slug = "back"
+        description = "Width, thickness, posture"
+
+      [[params.home.sections.items]]
+        title = "Shoulders"
+        slug = "shoulders"
+        description = "Delts in all angles"
+
+      [[params.home.sections.items]]
+        title = "Biceps"
+        slug = "biceps"
+        description = "Curl variations + control"
+
+      [[params.home.sections.items]]
+        title = "Triceps"
+        slug = "triceps"
+        description = "Pressdown + overhead work"
+
+      [[params.home.sections.items]]
+        title = "Legs"
+        slug = "legs"
+        description = "Lower body power"
+
+      [[params.home.sections.items]]
+        title = "Core"
+        slug = "core"
+        description = "Stability + anti-rotation"
+
+  [params.labels]
+    free_weights = "Free Weights"
+    machines = "Machines"
+    cables = "Cables"
+
+  [params.images]
+    [params.images.push]
+      hero = "https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=1600&q=80"
+    [params.images.pull]
+      hero = "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80"
+    [params.images.legs]
+      hero = "https://images.unsplash.com/photo-1534367610401-9f5ed68180aa?auto=format&fit=crop&w=1600&q=80"
+
+    [params.images.chest.barbell_bench_press]
+      default = "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1600&q=80"
+      male = "https://images.unsplash.com/photo-1577221084712-45b0445d2b00?auto=format&fit=crop&w=1600&q=80"
+      female = "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1600&q=80"
+
+    [params.images.chest.cable_fly]
+      default = "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1600&q=80"
+
+    [params.images.back.lat_pulldown]
+      default = "https://images.unsplash.com/photo-1517960413843-0aee8e2b3285?auto=format&fit=crop&w=1600&q=80"
+
+    [params.images.back.one_arm_dumbbell_row]
+      default = "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=1600&q=80"
+
+    [params.images.shoulders.dumbbell_shoulder_press]
+      default = "https://images.unsplash.com/photo-1596357395217-80de13130e92?auto=format&fit=crop&w=1600&q=80"
+
+    [params.images.biceps.incline_dumbbell_curl]
+      default = "https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?auto=format&fit=crop&w=1600&q=80"
+
+    [params.images.triceps.rope_pressdown]
+      default = "https://images.unsplash.com/photo-1599058918147-4b5e7a1e0c32?auto=format&fit=crop&w=1600&q=80"
+
+    [params.images.legs.leg_press]
+      default = "https://images.unsplash.com/photo-1584863495140-9e0c9a7b2d2c?auto=format&fit=crop&w=1600&q=80"
+
+    [params.images.core.cable_crunch]
+      default = "https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=1600&q=80"
