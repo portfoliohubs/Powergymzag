@@ -382,10 +382,10 @@
                 </div>
 
                 <div class="exercises-container" id="exercisesContainer">
-                    {{ range .Site.RegularPages }}
-                        {{ if or (eq .Params.muscle $.Params.muscle) (eq .Params.train_type $.Params.train_type) }}
-                            {{ $showExercise := true }}
-                            
+                    {{ $musclePages := where .Site.RegularPages "Params.muscle" $.Params.muscle }}
+                    {{ $typePages := where .Site.RegularPages "Params.train_type" $.Params.train_type }}
+                    {{ $relevantPages := union $musclePages $typePages }}
+                    {{ range $relevantPages }}
                             <div class="exercise-card" 
                                  data-equipment="{{ .Params.equipment | default "free_weights" }}"
                                  data-gender="{{ delimit (.Params.gender | default "male") "," }}">
@@ -431,7 +431,6 @@
                                     {{ end }}
                                 </div>
                             </div>
-                        {{ end }}
                     {{ end }}
                 </div>
 

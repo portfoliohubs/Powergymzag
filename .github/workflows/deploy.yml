@@ -3,7 +3,8 @@ name: Deploy Hugo Site to GitHub Pages
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build-deploy:
@@ -14,41 +15,39 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive  # Ensures themes installed as submodules are downloaded
-          fetch-depth: 0         # Required if you use .GitInfo in Hugo
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: '0.154.5' # Stick to the version you know works
-          extended: true
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v3
+      with:
+        hugo-version: '0.154.5'
+        extended: true
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+    - name: Cache Hugo modules
+      uses: actions/cache@v3
+      with:
+        path: /tmp/hugo_cache
+        key: ${{ runner.os }}-hugo-${{ hashFiles('**/go.sum', '**/go.mod') }}
+        restore-keys: |
+          ${{ runner.os }}-hugo-
 
-      # --- 🚀 THE FIX: CACHE STEP ---
-      # This saves the 'resources' folder. Hugo will reuse images from here
-      # instead of regenerating them for 5 minutes.
-      - name: Cache Hugo resources
-        uses: actions/cache@v3
-        with:
-          path: resources
-          key: ${{ runner.os }}-hugo-resources-${{ hashFiles('content/**/*') }}
-          restore-keys: |
-            ${{ runner.os }}-hugo-resources-
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
 
-      - name: Build with Hugo
-        # Removed '--gc' so we don't delete the cached images we just downloaded
-        run: hugo --minify --enableGitInfo
+    - name: Build with Hugo
+      run: |
+        export HUGO_CACHE_DIR=/tmp/hugo_cache
+        hugo --minify --gc --enableGitInfo --logLevel info
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./public
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./public
+        retention-days: 1
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
