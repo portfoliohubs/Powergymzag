@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://github.com/portfoliohubs/Powergymzag/"
 languageCode = "en-us"
 title = "Gym Training"
 relativeURLs = true
@@ -6,7 +6,7 @@ relativeURLs = true
 [taxonomies]
 
 [params]
-  gym_name = "IronPulse Gym"
+  gym_name = "POWER Gym"
   slogan = "Train smart. Lift strong. Repeat."
   cta_text = "Explore Training"
   default_theme = "dark"
@@ -116,3 +116,4 @@ relativeURLs = true
 
     [params.images.core.cable_crunch]
       default = "https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=1600&q=80"
+
