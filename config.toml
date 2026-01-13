@@ -1,7 +1,9 @@
-baseURL = "https://github.com/portfoliohubs/Powergymzag/"
+baseURL = "/"
 languageCode = "en-us"
 title = "Gym Training"
 relativeURLs = true
+
+[taxonomies]
 
 [params]
   gym_name = "IronPulse Gym"
