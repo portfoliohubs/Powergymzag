@@ -18,25 +18,25 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        submodules: recursive
-        fetch-depth: 0
+        fetch-depth: 1
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
       with:
-        hugo-version: 'latest'
+        hugo-version: '0.154.5'
         extended: true
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
 
     - name: Build with Hugo
-      run: hugo --minify
+      run: hugo --minify --gc --enableGitInfo
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
         path: ./public
+        retention-days: 1
 
     - name: Deploy to GitHub Pages
       id: deployment
