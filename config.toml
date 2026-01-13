@@ -56,13 +56,19 @@ title = 'Gym Training System'
     chest = { name = "Chest", description = "Upper body pushing muscles" }
     back = { name = "Back", description = "Upper body pulling muscles" }
     shoulders = { name = "Shoulders", description = "Deltoid muscles" }
-    arms = { 
-      name = "Arms", 
-      description = "Biceps and Triceps",
-      sub_parts = {
-        biceps = { name = "Biceps", description = "Arm flexors" }
-        triceps = { name = "Triceps", description = "Arm extensors" }
-      }
-    }
+    
+    [training_programs.body_parts.arms]
+    name = "Arms"
+    description = "Biceps and Triceps"
+    
+    [training_programs.body_parts.arms.sub_parts]
+      [training_programs.body_parts.arms.sub_parts.biceps]
+      name = "Biceps"
+      description = "Arm flexors"
+      
+      [training_programs.body_parts.arms.sub_parts.triceps]
+      name = "Triceps"
+      description = "Arm extensors"
+    
     legs = { name = "Legs", description = "Lower body muscles" }
     core = { name = "Core", description = "Abdominal and stabilizing muscles" }
