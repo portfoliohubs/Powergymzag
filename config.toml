@@ -14,41 +14,41 @@ title = 'Gym Training System'
 
 [images]
   [images.chest]
-    barbell_bench_press = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop"
-    dumbbell_fly = "https://images.unsplash.com/photo-1581009146145-b5a0e428f5cf?w=800&h=600&fit=crop"
-    cable_fly = "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=800&h=600&fit=crop"
-    machine_chest_press = "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop"
+    barbell_bench_press = ""
+    dumbbell_fly = ""
+    cable_fly = ""
+    machine_chest_press = ""
   
   [images.back]
-    pull_ups = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop"
-    bent_over_rows = "https://images.unsplash.com/photo-1581009146145-b5a0e428f5cf?w=800&h=600&fit=crop"
-    lat_pulldown = "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=800&h=600&fit=crop"
-    seated_cable_rows = "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop"
+    pull_ups = ""
+    bent_over_rows = ""
+    lat_pulldown = ""
+    seated_cable_rows = ""
   
   [images.shoulders]
-    overhead_press = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop"
-    lateral_raises = "https://images.unsplash.com/photo-1581009146145-b5a0e428f5cf?w=800&h=600&fit=crop"
-    front_raises = "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=800&h=600&fit=crop"
-    shoulder_press_machine = "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop"
+    overhead_press = ""
+    lateral_raises = ""
+    front_raises = ""
+    shoulder_press_machine = ""
   
   [images.arms]
-    bicep_curls = "https://images.unsplash.com/photo-1581009146145-b5a0e428f5cf?w=800&h=600&fit=crop"
-    tricep_pushdowns = "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=800&h=600&fit=crop"
-    hammer_curls = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop"
-    skull_crushers = "https://images.unsplash.com/photo-1581009146145-b5a0e428f5cf?w=800&h=600&fit=crop"
+    bicep_curls = ""
+    tricep_pushdowns = ""
+    hammer_curls = ""
+    skull_crushers = ""
   
   [images.legs]
-    squats = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop"
-    deadlifts = "https://images.unsplash.com/photo-1581009146145-b5a0e428f5cf?w=800&h=600&fit=crop"
-    leg_press = "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=800&h=600&fit=crop"
-    leg_curls = "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop"
-    lunges = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop"
+    squats = ""
+    deadlifts = ""
+    leg_press = ""
+    leg_curls = ""
+    lunges = ""
   
   [images.core]
-    planks = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop"
-    crunches = "https://images.unsplash.com/photo-1581009146145-b5a0e428f5cf?w=800&h=600&fit=crop"
-    leg_raises = "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=800&h=600&fit=crop"
-    russian_twists = "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop"
+    planks = ""
+    crunches = ""
+    leg_raises = ""
+    russian_twists = ""
 
 [training_programs]
   [training_programs.push_pull_legs]
