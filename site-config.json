@@ -1,0 +1,766 @@
+{
+  "archetypedir": "archetypes",
+  "assetdir": "assets",
+  "baseurl": "https://github.com/portfoliohubs/Powergymzag/",
+  "build": {
+    "buildstats": {},
+    "cachebusters": [
+      {
+        "source": "(postcss|tailwind)\\.config\\.js",
+        "target": "(css|styles|scss|sass)"
+      }
+    ],
+    "useresourcecachewhen": "fallback"
+  },
+  "cachedir": "/tmp/hugo_cache_runner/",
+  "caches": {
+    "assets": {
+      "dir": ":resourceDir/_gen",
+      "maxage": -1
+    },
+    "getcsv": {
+      "dir": ":cacheDir/:project",
+      "maxage": -1
+    },
+    "getjson": {
+      "dir": ":cacheDir/:project",
+      "maxage": -1
+    },
+    "getresource": {
+      "dir": ":cacheDir/:project",
+      "maxage": -1
+    },
+    "images": {
+      "dir": ":resourceDir/_gen",
+      "maxage": -1
+    },
+    "modules": {
+      "dir": ":cacheDir/modules",
+      "maxage": -1
+    }
+  },
+  "capitalizelisttitles": true,
+  "contentdir": "content",
+  "datadir": "data",
+  "defaultcontentlanguage": "en",
+  "deployment": {
+    "invalidatecdn": true,
+    "maxdeletes": 256,
+    "workers": 10
+  },
+  "environment": "production",
+  "frontmatter": {
+    "date": [
+      "date",
+      "publishdate",
+      "pubdate",
+      "published",
+      "lastmod",
+      "modified"
+    ],
+    "expirydate": [
+      "expirydate",
+      "unpublishdate"
+    ],
+    "lastmod": [
+      ":git",
+      "lastmod",
+      "modified",
+      "date",
+      "publishdate",
+      "pubdate",
+      "published"
+    ],
+    "publishdate": [
+      "publishdate",
+      "pubdate",
+      "published",
+      "date"
+    ]
+  },
+  "i18ndir": "i18n",
+  "imaging": {
+    "bgcolor": "#ffffff",
+    "hint": "photo",
+    "quality": 75,
+    "resamplefilter": "box"
+  },
+  "languagecode": "en-us",
+  "languages": {
+    "en": {
+      "languagecode": "en-us"
+    }
+  },
+  "layoutdir": "layouts",
+  "markup": {
+    "asciidocext": {
+      "backend": "html5",
+      "failurelevel": "fatal",
+      "noheaderorfooter": true,
+      "safemode": "unsafe"
+    },
+    "defaultmarkdownhandler": "goldmark",
+    "goldmark": {
+      "extensions": {
+        "cjk": {
+          "eastasianlinebreaksstyle": "simple"
+        },
+        "definitionlist": true,
+        "footnote": true,
+        "linkify": true,
+        "linkifyprotocol": "https",
+        "passthrough": {
+          "delimiters": {}
+        },
+        "strikethrough": true,
+        "table": true,
+        "tasklist": true,
+        "typographer": {
+          "apostrophe": "\u0026rsquo;",
+          "ellipsis": "\u0026hellip;",
+          "emdash": "\u0026mdash;",
+          "endash": "\u0026ndash;",
+          "leftanglequote": "\u0026laquo;",
+          "leftdoublequote": "\u0026ldquo;",
+          "leftsinglequote": "\u0026lsquo;",
+          "rightanglequote": "\u0026raquo;",
+          "rightdoublequote": "\u0026rdquo;",
+          "rightsinglequote": "\u0026rsquo;"
+        }
+      },
+      "parser": {
+        "attribute": {
+          "title": true
+        },
+        "autoheadingid": true,
+        "autoheadingidtype": "github",
+        "wrapstandaloneimagewithinparagraph": true
+      },
+      "renderer": {},
+      "renderhooks": {
+        "image": {},
+        "link": {}
+      }
+    },
+    "highlight": {
+      "codefences": true,
+      "linenostart": 1,
+      "linenumbersintable": true,
+      "noclasses": true,
+      "style": "monokai",
+      "tabwidth": 4
+    },
+    "tableofcontents": {
+      "endlevel": 3,
+      "startlevel": 2
+    }
+  },
+  "mediatypes": {
+    "application/json": {
+      "delimiter": ".",
+      "suffixes": [
+        "json"
+      ]
+    },
+    "application/manifest+json": {
+      "delimiter": ".",
+      "suffixes": [
+        "webmanifest"
+      ]
+    },
+    "application/octet-stream": {
+      "delimiter": "."
+    },
+    "application/pdf": {
+      "delimiter": ".",
+      "suffixes": [
+        "pdf"
+      ]
+    },
+    "application/rss+xml": {
+      "delimiter": ".",
+      "suffixes": [
+        "xml",
+        "rss"
+      ]
+    },
+    "application/toml": {
+      "delimiter": ".",
+      "suffixes": [
+        "toml"
+      ]
+    },
+    "application/wasm": {
+      "delimiter": ".",
+      "suffixes": [
+        "wasm"
+      ]
+    },
+    "application/xml": {
+      "delimiter": ".",
+      "suffixes": [
+        "xml"
+      ]
+    },
+    "application/yaml": {
+      "delimiter": ".",
+      "suffixes": [
+        "yaml",
+        "yml"
+      ]
+    },
+    "font/otf": {
+      "delimiter": ".",
+      "suffixes": [
+        "otf"
+      ]
+    },
+    "font/ttf": {
+      "delimiter": ".",
+      "suffixes": [
+        "ttf"
+      ]
+    },
+    "image/bmp": {
+      "delimiter": ".",
+      "suffixes": [
+        "bmp"
+      ]
+    },
+    "image/gif": {
+      "delimiter": ".",
+      "suffixes": [
+        "gif"
+      ]
+    },
+    "image/jpeg": {
+      "delimiter": ".",
+      "suffixes": [
+        "jpg",
+        "jpeg",
+        "jpe",
+        "jif",
+        "jfif"
+      ]
+    },
+    "image/png": {
+      "delimiter": ".",
+      "suffixes": [
+        "png"
+      ]
+    },
+    "image/svg+xml": {
+      "delimiter": ".",
+      "suffixes": [
+        "svg"
+      ]
+    },
+    "image/tiff": {
+      "delimiter": ".",
+      "suffixes": [
+        "tif",
+        "tiff"
+      ]
+    },
+    "image/webp": {
+      "delimiter": ".",
+      "suffixes": [
+        "webp"
+      ]
+    },
+    "text/calendar": {
+      "delimiter": ".",
+      "suffixes": [
+        "ics"
+      ]
+    },
+    "text/css": {
+      "delimiter": ".",
+      "suffixes": [
+        "css"
+      ]
+    },
+    "text/csv": {
+      "delimiter": ".",
+      "suffixes": [
+        "csv"
+      ]
+    },
+    "text/html": {
+      "delimiter": ".",
+      "suffixes": [
+        "html"
+      ]
+    },
+    "text/javascript": {
+      "delimiter": ".",
+      "suffixes": [
+        "js",
+        "jsm",
+        "mjs"
+      ]
+    },
+    "text/jsx": {
+      "delimiter": ".",
+      "suffixes": [
+        "jsx"
+      ]
+    },
+    "text/markdown": {
+      "delimiter": ".",
+      "suffixes": [
+        "md",
+        "markdown"
+      ]
+    },
+    "text/plain": {
+      "delimiter": ".",
+      "suffixes": [
+        "txt"
+      ]
+    },
+    "text/tsx": {
+      "delimiter": ".",
+      "suffixes": [
+        "tsx"
+      ]
+    },
+    "text/typescript": {
+      "delimiter": ".",
+      "suffixes": [
+        "ts"
+      ]
+    },
+    "text/x-sass": {
+      "delimiter": ".",
+      "suffixes": [
+        "sass"
+      ]
+    },
+    "text/x-scss": {
+      "delimiter": ".",
+      "suffixes": [
+        "scss"
+      ]
+    },
+    "video/3gpp": {
+      "delimiter": ".",
+      "suffixes": [
+        "3gpp",
+        "3gp"
+      ]
+    },
+    "video/mp4": {
+      "delimiter": ".",
+      "suffixes": [
+        "mp4"
+      ]
+    },
+    "video/mpeg": {
+      "delimiter": ".",
+      "suffixes": [
+        "mpg",
+        "mpeg"
+      ]
+    },
+    "video/ogg": {
+      "delimiter": ".",
+      "suffixes": [
+        "ogv"
+      ]
+    },
+    "video/webm": {
+      "delimiter": ".",
+      "suffixes": [
+        "webm"
+      ]
+    },
+    "video/x-msvideo": {
+      "delimiter": ".",
+      "suffixes": [
+        "avi"
+      ]
+    }
+  },
+  "minify": {
+    "tdewolff": {
+      "css": {
+        "keepcss2": true
+      },
+      "html": {
+        "keepdefaultattrvals": true,
+        "keepdocumenttags": true,
+        "keependtags": true,
+        "keepspecialcomments": true,
+        "templatedelims": [
+          "",
+          ""
+        ]
+      },
+      "js": {
+        "version": 2022
+      },
+      "json": {},
+      "svg": {},
+      "xml": {}
+    }
+  },
+  "module": {
+    "hugoversion": {},
+    "mounts": [
+      {
+        "source": "content",
+        "target": "content"
+      },
+      {
+        "source": "data",
+        "target": "data"
+      },
+      {
+        "source": "layouts",
+        "target": "layouts"
+      },
+      {
+        "source": "i18n",
+        "target": "i18n"
+      },
+      {
+        "source": "archetypes",
+        "target": "archetypes"
+      },
+      {
+        "source": "assets",
+        "target": "assets"
+      },
+      {
+        "source": "static",
+        "target": "static"
+      }
+    ],
+    "noproxy": "none",
+    "private": "*.*",
+    "proxy": "direct",
+    "workspace": "off"
+  },
+  "outputformats": {
+    "amp": {
+      "basename": "index",
+      "ishtml": true,
+      "mediatype": "text/html",
+      "path": "amp",
+      "permalinkable": true,
+      "rel": "amphtml"
+    },
+    "calendar": {
+      "basename": "index",
+      "isplaintext": true,
+      "mediatype": "text/calendar",
+      "protocol": "webcal://",
+      "rel": "alternate"
+    },
+    "css": {
+      "basename": "styles",
+      "isplaintext": true,
+      "mediatype": "text/css",
+      "notalternative": true,
+      "rel": "stylesheet"
+    },
+    "csv": {
+      "basename": "index",
+      "isplaintext": true,
+      "mediatype": "text/csv",
+      "rel": "alternate"
+    },
+    "html": {
+      "basename": "index",
+      "ishtml": true,
+      "mediatype": "text/html",
+      "permalinkable": true,
+      "rel": "canonical",
+      "weight": 10
+    },
+    "json": {
+      "basename": "index",
+      "isplaintext": true,
+      "mediatype": "application/json",
+      "rel": "alternate"
+    },
+    "markdown": {
+      "basename": "index",
+      "isplaintext": true,
+      "mediatype": "text/markdown",
+      "rel": "alternate"
+    },
+    "robots": {
+      "basename": "robots",
+      "isplaintext": true,
+      "mediatype": "text/plain",
+      "rel": "alternate",
+      "root": true
+    },
+    "rss": {
+      "basename": "index",
+      "mediatype": "application/rss+xml",
+      "nougly": true,
+      "rel": "alternate"
+    },
+    "sitemap": {
+      "basename": "sitemap",
+      "mediatype": "application/xml",
+      "rel": "sitemap",
+      "ugly": true
+    },
+    "webappmanifest": {
+      "basename": "manifest",
+      "isplaintext": true,
+      "mediatype": "application/manifest+json",
+      "notalternative": true,
+      "rel": "manifest"
+    }
+  },
+  "outputs": {
+    "home": [
+      "html",
+      "rss"
+    ],
+    "page": [
+      "html"
+    ],
+    "rss": [
+      "rss"
+    ],
+    "section": [
+      "html",
+      "rss"
+    ],
+    "taxonomy": [
+      "html",
+      "rss"
+    ],
+    "term": [
+      "html",
+      "rss"
+    ]
+  },
+  "paginate": 10,
+  "paginatepath": "page",
+  "params": {
+    "cta_text": "Explore Training",
+    "default_gender": "male",
+    "default_theme": "dark",
+    "gym_name": "IronPulse Gym",
+    "home": {
+      "hero_cta_target": "#programs",
+      "sections": [
+        {
+          "id": "ppl",
+          "items": [
+            {
+              "description": "Chest, shoulders, triceps",
+              "slug": "push",
+              "title": "Push"
+            },
+            {
+              "description": "Back, rear delts, biceps",
+              "slug": "pull",
+              "title": "Pull"
+            },
+            {
+              "description": "Quads, hamstrings, glutes, calves",
+              "slug": "legs",
+              "title": "Legs"
+            }
+          ],
+          "subtitle": "Structured programs for balanced progression",
+          "title": "Push / Pull / Legs"
+        },
+        {
+          "id": "bodyparts",
+          "items": [
+            {
+              "description": "Pressing strength + hypertrophy",
+              "slug": "chest",
+              "title": "Chest"
+            },
+            {
+              "description": "Width, thickness, posture",
+              "slug": "back",
+              "title": "Back"
+            },
+            {
+              "description": "Delts in all angles",
+              "slug": "shoulders",
+              "title": "Shoulders"
+            },
+            {
+              "description": "Curl variations + control",
+              "slug": "biceps",
+              "title": "Biceps"
+            },
+            {
+              "description": "Pressdown + overhead work",
+              "slug": "triceps",
+              "title": "Triceps"
+            },
+            {
+              "description": "Lower body power",
+              "slug": "legs",
+              "title": "Legs"
+            },
+            {
+              "description": "Stability + anti-rotation",
+              "slug": "core",
+              "title": "Core"
+            }
+          ],
+          "subtitle": "Pick a muscle focus and filter by equipment",
+          "title": "Smart Body Parts"
+        }
+      ]
+    },
+    "images": {
+      "back": {
+        "lat_pulldown": {
+          "default": "https://images.unsplash.com/photo-1517960413843-0aee8e2b3285?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+        },
+        "one_arm_dumbbell_row": {
+          "default": "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+        }
+      },
+      "biceps": {
+        "incline_dumbbell_curl": {
+          "default": "https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+        }
+      },
+      "chest": {
+        "barbell_bench_press": {
+          "default": "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format\u0026fit=crop\u0026w=1600\u0026q=80",
+          "female": "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format\u0026fit=crop\u0026w=1600\u0026q=80",
+          "male": "https://images.unsplash.com/photo-1577221084712-45b0445d2b00?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+        },
+        "cable_fly": {
+          "default": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+        }
+      },
+      "core": {
+        "cable_crunch": {
+          "default": "https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+        }
+      },
+      "legs": {
+        "hero": "https://images.unsplash.com/photo-1534367610401-9f5ed68180aa?auto=format\u0026fit=crop\u0026w=1600\u0026q=80",
+        "leg_press": {
+          "default": "https://images.unsplash.com/photo-1584863495140-9e0c9a7b2d2c?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+        }
+      },
+      "pull": {
+        "hero": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+      },
+      "push": {
+        "hero": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+      },
+      "shoulders": {
+        "dumbbell_shoulder_press": {
+          "default": "https://images.unsplash.com/photo-1596357395217-80de13130e92?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+        }
+      },
+      "triceps": {
+        "rope_pressdown": {
+          "default": "https://images.unsplash.com/photo-1599058918147-4b5e7a1e0c32?auto=format\u0026fit=crop\u0026w=1600\u0026q=80"
+        }
+      }
+    },
+    "labels": {
+      "cables": "Cables",
+      "free_weights": "Free Weights",
+      "machines": "Machines"
+    },
+    "slogan": "Train smart. Lift strong. Repeat."
+  },
+  "permalinks": {},
+  "pluralizelisttitles": true,
+  "privacy": {
+    "disqus": {},
+    "googleanalytics": {},
+    "instagram": {},
+    "twitter": {},
+    "vimeo": {},
+    "youtube": {}
+  },
+  "publishdir": "public",
+  "related": {
+    "indices": [
+      {
+        "name": "keywords",
+        "type": "basic",
+        "weight": 100
+      },
+      {
+        "name": "date",
+        "type": "basic",
+        "weight": 10
+      }
+    ],
+    "threshold": 80
+  },
+  "relativeurls": true,
+  "resourcedir": "resources",
+  "security": {
+    "exec": {
+      "allow": [
+        "^(dart-)?sass(-embedded)?$",
+        "^go$",
+        "^npx$",
+        "^postcss$"
+      ],
+      "osenv": [
+        "(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|GO\\w+|(XDG_CONFIG_)?HOME|USERPROFILE|SSH_AUTH_SOCK|DISPLAY|LANG|SYSTEMDRIVE)$"
+      ]
+    },
+    "funcs": {
+      "getenv": [
+        "^HUGO_",
+        "^CI$"
+      ]
+    },
+    "http": {
+      "methods": [
+        "(?i)GET|POST"
+      ],
+      "urls": [
+        ".*"
+      ]
+    }
+  },
+  "server": {
+    "redirects": [
+      {
+        "from": "**",
+        "status": 404,
+        "to": "/404.html"
+      }
+    ]
+  },
+  "services": {
+    "disqus": {},
+    "googleanalytics": {},
+    "instagram": {},
+    "rss": {
+      "limit": -1
+    },
+    "twitter": {}
+  },
+  "sitemap": {
+    "filename": "sitemap.xml",
+    "priority": -1
+  },
+  "staticdir": [
+    "static"
+  ],
+  "summarylength": 70,
+  "themesdir": "themes",
+  "timeout": "30s",
+  "title": "Gym Training",
+  "titlecasestyle": "AP",
+  "workingdir": "/home/runner/work/Powergymzag/Powergymzag"
+}
