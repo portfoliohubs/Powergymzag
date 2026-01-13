@@ -40,7 +40,7 @@ jobs:
 
       - name: Build
         env:
-          HUGO_CACHEDIR: .hugo_build_cache
+          HUGO_CACHEDIR: ${{ github.workspace }}/.hugo_build_cache
         run: hugo --minify
 
       - name: Copy root index.html into public
